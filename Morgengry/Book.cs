@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Morgengry
 {
-    class Book
+    public class Book
     {
         private string itemId;
         private string title;
@@ -46,24 +46,28 @@ namespace Morgengry
             }
         }
 
-        public Book(string item, string title, double price)
+        public Book(string itemId, string title, double price)
         {
-            ItemId = item;
+            ItemId = itemId;
             Title = title;
             Price = price;
         }
-        public Book(string item, string title) :
-            this (item, title, 0.0)
+        public Book(string itemId, string title) :
+            this (itemId, title, 0.0)
         {
             //ItemId = item;
             //Title = title;
         }
-        public Book(string item) :
-            this (item, "no title")
+        public Book(string itemId) :
+            this (itemId, "")
         {
             //ItemId = item;
         }
 
+        public override string ToString()
+        {
+            return "ItemId: " + itemId + ", Title: " + title + ", Price: " + price;
+        }
 
     }
 }
